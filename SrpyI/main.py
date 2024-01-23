@@ -1,6 +1,9 @@
 from PyQt5.QtWidgets import QApplication
 from UI.mainWindow import MainWindow
 
+from rocketpy import Environment, Rocket, SolidMotor, Flight
+import datetime
+
 import sys
 
 def print_hi(name):
