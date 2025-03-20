@@ -5,12 +5,29 @@ from rocketpy import SolidMotor
 
 class SimulationMotor:
     motor = SolidMotor
+    def getValue(self,actualFile):
+        temps = []
+        poussées = []
+
+        with open(actualFile, 'r') as fichier:
+            lignes = fichier.readlines()
+
+            # Ignorer la première ligne qui contient des métadonnées
+            for ligne in lignes[2:]:  # Commence à la deuxième ligne
+                parties = ligne.split()
+                if len(parties) >= 2:
+                    temps.append(float(parties[0]))
+                    poussées.append(float(parties[1]))
+
+        # Retourner une liste de listes [temps, poussée]
+        return [[t, p] for t, p in zip(temps, poussées)]
+        # Alternative avec NumPy : return np.array(list(zip(temps, poussées)))
 
     def __init__(self):
-        thrust_source_path = Path(__file__).parents[2] / "Data/Motors/Cesaroni/M1670-BS.eng"
+        thrust_source_path = Path(__file__).parents[2] / "Data/Motors/Cesaroni/SIRIUS11.eng"
 
         self.set_motor(SolidMotor(
-            thrust_source=thrust_source_path,
+            thrust_source=self.getValue(thrust_source_path),
             dry_mass=1.815,
             dry_inertia=(0.125, 0.125, 0.002),
             center_of_dry_mass_position=0.317,

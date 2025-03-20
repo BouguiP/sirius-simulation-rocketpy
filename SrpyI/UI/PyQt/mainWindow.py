@@ -3,7 +3,7 @@ from PyQt5.QtCore import QSize
 from PyQt5.QtWidgets import QMainWindow, QPushButton, QVBoxLayout
 
 # Custom dependencies
-from SrpyI.UI.PyQt.motorContainer import MotorContainer
+from UI.PyQt.motorContainer import MotorContainer
 
 
 class MainWindow(QMainWindow):
@@ -30,6 +30,6 @@ class MainWindow(QMainWindow):
 
         self.setCentralWidget(button)
 
-        # self.layout.addWidget(button)
+        self.layout.addWidget(button)
 
-        # self.setLayout(self.layout)
+        self.setLayout(self.layout)

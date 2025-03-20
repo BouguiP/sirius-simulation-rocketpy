@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0652f9a-9869-41a3-81c3-b885e05c8c09" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/SrpyI/Simulation/RocketPy/simulation_motor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SrpyI/UI/PyQt/motorContainer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SrpyI/.idea/SrpyI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SrpyI/.idea/SrpyI.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SrpyI/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SrpyI/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SrpyI/Data/Motors/Cesaroni/M1670-BS-AT.eng" beforeDir="false" afterPath="$PROJECT_DIR$/SrpyI/Data/Motors/Cesaroni/M1670-BS-AT.eng" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SrpyI/Simulation/RocketPy/simulation_motor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SrpyI/Simulation/RocketPy/simulation_motor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SrpyI/Simulation/RocketPy/simulation_rocketpy.py" beforeDir="false" afterPath="$PROJECT_DIR$/SrpyI/Simulation/RocketPy/simulation_rocketpy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SrpyI/UI/PyQt/mainWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/SrpyI/UI/PyQt/mainWindow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SrpyI/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/SrpyI/main.py" afterDir="false" />
@@ -45,10 +47,14 @@
     "Python.mainWindow.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/pitch/OneDrive/Documents/GitHub/SRpyI",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "last_opened_file_path": "C:/Users/mehdi/Desktop/sirius-simulation-rocketpy",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -70,6 +76,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SrpyI/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -83,7 +90,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-5a2391486177-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13763.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.25659.43" />
+        <option value="bundled-python-sdk-181015f7ab06-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.25659.43" />
       </set>
     </attachedChunks>
   </component>
@@ -95,7 +103,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705960465115</updated>
+      <workItem from="1740849513144" duration="16000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

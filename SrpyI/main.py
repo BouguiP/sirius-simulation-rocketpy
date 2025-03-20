@@ -1,10 +1,6 @@
 from PyQt5.QtWidgets import QApplication
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout
-from SrpyI.UI.PyQt.mainWindow import MainWindow
-from SrpyI.Simulation.RocketPy.simulation_rocketpy import SimulationRocketPy
-
-from rocketpy import Environment, Rocket, SolidMotor, Flight
-
+from UI.PyQt.mainWindow import MainWindow
+from Simulation.RocketPy.monte_carlo_analysis import MonteCarloDispersion
 import sys
 
 app = QApplication(sys.argv)
@@ -14,6 +10,7 @@ window.show()
 
 app.exec()
 
-simulation = SimulationRocketPy()
-
-
+# Lancer l'analyse Monte Carlo après la fermeture de la fenêtre (ou via un bouton dans l'UI)
+mc_analysis = MonteCarloDispersion(num_simulations=100)
+mc_analysis.run_monte_carlo()
+mc_analysis.plot_dispersion()
