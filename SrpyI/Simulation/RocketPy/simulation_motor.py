@@ -1,50 +1,69 @@
 from pathlib import Path
-
-from rocketpy import SolidMotor
-
+from rocketpy import LiquidMotor, Fluid, CylindricalTank, MassBasedTank, Function
+import numpy as np
 
 class SimulationMotor:
-    motor = SolidMotor
-    def getValue(self,actualFile):
+    motor = LiquidMotor
+
+    def getValue(self, actualFile):
         temps = []
         poussées = []
 
         with open(actualFile, 'r') as fichier:
             lignes = fichier.readlines()
 
-            # Ignorer la première ligne qui contient des métadonnées
-            for ligne in lignes[2:]:  # Commence à la deuxième ligne
+            for ligne in lignes[2:]:
                 parties = ligne.split()
                 if len(parties) >= 2:
                     temps.append(float(parties[0]))
                     poussées.append(float(parties[1]))
 
-        # Retourner une liste de listes [temps, poussée]
-        return [[t, p] for t, p in zip(temps, poussées)]
-        # Alternative avec NumPy : return np.array(list(zip(temps, poussées)))
+        thrust_data = [[t, p] for t, p in zip(temps, poussées)]
+        print(f"Thrust data read from file: {thrust_data[:5]}... (first 5 entries)")
+        return thrust_data
 
-    def __init__(self):
-        thrust_source_path = Path(__file__).parents[2] / "Data/Motors/Cesaroni/SIRIUS11.eng"
+    def __init__(self, thrust_file="SIRIUS11.eng"):
+        thrust_source_path = Path(__file__).parents[2] / "Data/Motors/Cesaroni" / thrust_file
+        print(f"Attempting to read thrust file: {thrust_source_path}")
+        thrust_data = self.getValue(thrust_source_path)
 
-        self.set_motor(SolidMotor(
-            thrust_source=self.getValue(thrust_source_path),
-            dry_mass=1.815,
-            dry_inertia=(0.125, 0.125, 0.002),
-            center_of_dry_mass_position=0.317,
-            grains_center_of_mass_position=0.397,
-            burn_time=3.9,
-            grain_number=5,
-            grain_separation=0.005,
-            grain_density=1815,
-            grain_outer_radius=0.033,
-            grain_initial_inner_radius=0.015,
-            grain_initial_height=0.12,
-            nozzle_radius=0.033,
-            throat_radius=0.011,
-            interpolation_method="linear",
-            nozzle_position=0,
+        if not thrust_data or len(thrust_data) < 2:
+            raise ValueError("Thrust data is empty or invalid. Please check the thrust file SIRIUS11.eng.")
+
+        t_burn = 7.205
+
+        propellant_liquid = Fluid(name="propellant_liquid", density=1000)
+        propellant_gas = Fluid(name="propellant_gas", density=1.2)
+
+        tank_shape = CylindricalTank(radius=0.1524, height=1.621, spherical_caps=False)
+
+        m_prop = 17.059
+        liquid_mass = Function([(0, m_prop), (t_burn, 0)], 'time (s)', 'liquid mass (kg)', 'linear')
+        gas_mass = Function(lambda t: 0, 'time (s)', 'gas mass (kg)', 'constant')
+
+        tank = MassBasedTank(
+            name="propellant tank",
+            geometry=tank_shape,
+            flux_time=t_burn,
+            gas=propellant_gas,
+            liquid=propellant_liquid,
+            gas_mass=gas_mass,
+            liquid_mass=liquid_mass,
+            discretize=100
+        )
+
+        motor = LiquidMotor(
+            thrust_source=thrust_data,
+            dry_mass=19.791,
+            dry_inertia=(9.738, 9.735, 0.076),
+            center_of_dry_mass_position=2.49012763,
+            burn_time=t_burn,
+            nozzle_radius=0.047588,
+            nozzle_position=3.52946029,
             coordinate_system_orientation="nozzle_to_combustion_chamber"
-        ))
+        )
 
-    def set_motor(self, new_motor):
-        self.motor = new_motor
+        motor.add_tank(tank, position=1.295)
+
+        self.motor = motor
+        print(f"Motor initialized: {type(self.motor)}")

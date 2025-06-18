@@ -1,0 +1,256 @@
+Nom : Rayon de la fusée (radius)
+	Définition : Rayon extérieur du corps principal de la fusée, utilisé pour calculer l'aire de référence pour les forces aérodynamiques.
+	Unité : mètres (m)
+0.1524
+
+Nom : Masse sans moteur (mass)
+	Définition : Masse de la fusée sans le moteur, incluant la structure, le nez, les ailerons, etc. (masse sèche hors moteur).
+	Unité : kilogrammes (kg)
+11.608
+
+Nom : Moments d'inertie sans moteur (inertia)
+	Définition : Moments d'inertie de la fusée sans moteur, sous forme d'un tuple (Ixx, Iyy, Izz), autour des axes x, y, et z.
+	Unité : kg·m²
+19.87229886, 0.07508979, 19.87217723 VALIDER LES AXES: x et z sont radiaux, y est axial
+
+Nom : Position du centre de masse sans moteur (center_of_mass_without_motor)
+	Définition : Position du centre de masse de la fusée sans moteur, mesurée dans le système de coordonnées spécifié.
+	Unité : mètres (m)
+1.83912056 m à partire de la pointe du nez
+
+Nom : Coefficient de traînée moteur éteint (power_off_drag)
+	Définition : Coefficient de traînée aérodynamique lorsque le moteur est éteint (phase non propulsée).
+	Unité : Sans unité (adimensionnel)
+0.6
+
+Nom : Coefficient de traînée moteur allumé (power_on_drag)
+	Définition : Coefficient de traînée aérodynamique lorsque le moteur est allumé (phase propulsée).
+	Unité : Sans unité (adimensionnel)
+0.54
+
+Nom : Orientation du système de coordonnées (coordinate_system_orientation)
+	Définition : Orientation du système de coordonnées de la fusée (par exemple, "nose_to_tail" ou "tail_to_nose").
+	Unité : Chaîne de caractères
+nose_to_tail À VALIDER
+
+Nez (Nose Cone)
+Nom : Longueur du nez (length)
+	Définition : Longueur totale du nez conique (ou von Karman, ogival, etc.) mesurée le long de l'axe longitudinal.
+	Unité : mètres (m)
+0.4572
+
+Nom : Type de nez (kind)
+	Définition : Type de nez conique (par exemple, "conical", "ogival", "von karman").
+	Unité : Chaîne de caractères
+von karman
+
+Nom : Position du nez (position)
+	Définition : Position du nez dans le système de coordonnées de la fusée (souvent 0 si l'origine est au nez).
+	Unité : mètres (m)
+0
+
+Ailerons (Fins)
+Nom : Nombre d'ailerons (n)
+	Définition : Nombre total d'ailerons attachés à la fusée.
+	Unité : Entier (sans unité)
+4
+
+Nom : Corde racine (root_chord)
+	Définition : Longueur de la corde à la base de l'aileron (côté attaché au corps).
+	Unité : mètres (m)
+0.4064
+
+Nom : Corde de pointe (tip_chord)
+	Définition : Longueur de la corde à l'extrémité de l'aileron (côté externe).
+	Unité : mètres (m)
+0.1524
+
+Nom : Envergure (span)
+	Définition : Hauteur de l'aileron mesurée perpendiculairement au corps de la fusée.
+	Unité : mètres (m)
+0.1524
+
+Nom : Position des ailerons (position)
+	Définition : Position du centre des ailerons dans le système de coordonnées de la fusée.
+	Unité : mètres (m)
+3.1756
+
+Nom : Angle d'inclinaison des ailerons (cant_angle)
+	Définition : Angle d'inclinaison des ailerons par rapport à l'axe radial.
+	Unité : degrés (°)
+60
+
+Queue (Tail) PAS DE QUEUE (pour l'instant
+Nom : Rayon supérieur de la queue (top_radius)
+	Définition : Rayon de la partie supérieure de la queue conique (côté proche du corps).
+	Unité : mètres (m)
+Nom : Rayon inférieur de la queue (bottom_radius)
+	Définition : Rayon de la partie inférieure de la queue conique (côté extrémité).
+	Unité : mètres (m)
+Nom : Longueur de la queue (length)
+	Définition : Longueur totale de la queue conique le long de l'axe longitudinal.
+	Unité : mètres (m)
+Nom : Position de la queue (position)
+	Définition : Position du centre de la queue dans le système de coordonnées de la fusée.
+	Unité : mètres (m)
+
+Parachute "Drogue"
+Nom : Coefficient de traînée multiplié par la surface (cd_s)
+	Définition : Produit du coefficient de traînée (Cd) et de la surface du parachute (S).
+	Unité : m²
+1.003280809
+
+Nom : Condition de déclenchement (trigger)
+	Définition : Condition ou événement qui déclenche l'ouverture du parachute (par exemple, "apogee").
+	Unité : Chaîne de caractères ou fonction
+"apogee"
+
+Parachute "main
+Nom : Coefficient de traînée multiplié par la surface (cd_s)
+	Définition : Produit du coefficient de traînée (Cd) et de la surface du parachute (S).
+	Unité : m²
+15.32283417
+
+Nom : Condition de déclenchement (trigger)
+	Définition : Condition ou événement qui déclenche l'ouverture du parachute (par exemple, "apogee").
+	Unité : Chaîne de caractères ou fonction
+quand la fusée atteint une altitude de 457m
+
+Moteur liquide (LiquidMotor)
+Nom : Masse à sec du moteur (dry_mass)
+	Définition : Masse du moteur sans propergol (structure, buse, réservoirs vides).
+	Unité : kilogrammes (kg)
+19.791 
+
+Nom : Moments d'inertie à sec (dry_inertia)
+	Définition : Moments d'inertie du moteur sans propergol, sous forme d'un tuple (Ixx, Iyy, Izz).
+	Unité : kg·m²
+9.738, 0.076, 9.735 VALIDER LES AXES: x et z sont radiaux, y est axial
+
+Nom : Position du centre de masse à sec (center_of_dry_mass_position)
+	Définition : Position du centre de masse du moteur sans propergol, mesurée dans son système de coordonnées.
+	Unité : mètres (m)
+2.49012763 m  système de coordonnées de la fusée
+
+Nom : Temps de combustion (burn_time)
+	Définition : Durée totale de la combustion du moteur.
+	Unité : secondes (s)
+7.25s
+
+Nom : Rayon de la buse (nozzle_radius)
+	Définition : Rayon de sortie de la buse du moteur.
+	Unité : mètres (m)
+0.047588
+
+Nom : Rayon de la gorge (throat_radius)
+	Définition : Rayon de la gorge de la buse (section la plus étroite).
+	Unité : mètres (m)
+0.021082
+
+Nom : Position de la buse (nozzle_position)
+	Définition : Position de la buse dans le système de coordonnées du moteur.
+	Unité : mètres (m)
+3.52946029
+
+Nom : Orientation du système de coordonnées du moteur (coordinate_system_orientation)
+	Définition : Orientation du système de coordonnées du moteur (par exemple, "nozzle_to_combustion_chamber").
+	Unité : Chaîne de caractères
+?
+
+Réservoirs et propergols (MassBasedTank)
+Nom : Masse initiale de liquide (initial_liquid_mass)
+	Définition : Masse initiale du propergol liquide (fuel + oxidizer) dans le réservoir.
+	Unité : kilogrammes (kg)
+17.059
+
+Nom : Masse initiale de gaz (initial_gas_mass)
+	Définition : Masse initiale de gaz dans le réservoir (par exemple, gaz de pressurisation).
+	Unité : kilogrammes (kg)
+0
+
+Nom : Masse de liquide en fonction du temps (liquid_mass)
+	Définition : Masse de propergol liquide dans le réservoir en fonction du temps, sous forme d'une Function.
+	Unité : kg (fonction du temps en s)
+? c'Est pas sensé le calculer ça?
+
+Nom : Masse de gaz en fonction du temps (gas_mass)
+	Définition : Masse de gaz dans le réservoir en fonction du temps, sous forme d'une Function.
+	Unité : kg (fonction du temps en s)
+N/A
+
+Nom : Densité du liquide (liquid.density)
+	Définition : Densité du propergol liquide (fuel + oxidizer mélangés).
+	Unité : kg/m³
+no clue
+
+Nom : Densité du gaz (gas.density)
+	Définition : Densité du gaz de pressurisation dans le réservoir.
+	Unité : kg/m³
+N/A
+
+Nom : Rayon du réservoir (geometry.radius)
+	Définition : Rayon du réservoir cylindrique.
+	Unité : mètres (m)
+0.1524
+
+Nom : Hauteur du réservoir (geometry.height)
+	Définition : Hauteur totale du réservoir cylindrique.
+	Unité : mètres (m)
+1.621
+
+Nom : Bouchons sphériques (geometry.spherical_caps)
+	Définition : Booléen indiquant si les extrémités du réservoir sont sphériques.
+	Unité : Booléen (True/False)
+false
+
+Nom : Temps de flux (flux_time)
+	Définition : Durée pendant laquelle le réservoir est actif (généralement égale au temps de combustion).
+	Unité : secondes (s)
+7.25
+
+Nom : Position du réservoir (position)
+	Définition : Position du centre du réservoir dans le système de coordonnées du moteur.
+	Unité : mètres (m)
+1.295
+
+Autres paramètres du moteur
+Nom : Vitesse d'éjection effective (v_e)
+	Définition : Vitesse moyenne des gaz éjectés par la buse, dépendant des propergols et des conditions de combustion.
+	Unité : mètres par seconde (m/s)
+variable
+
+Nom : Pression de la chambre (chamber_pressure)
+	Définition : Pression à l'intérieur de la chambre de combustion.
+	Unité : Pascals (Pa)
+2757902.9173
+
+Environnement et conditions de lancement
+Nom : Latitude de lancement (latitude)
+	Définition : Latitude du site de lancement.
+	Unité : degrés décimaux (°)
+47.9654292579322
+
+Nom : Longitude de lancement (longitude)
+	Définition : Longitude du site de lancement.
+	Unité : degrés décimaux (°)
+-81.87355281326795
+
+Nom : Élévation du site de lancement (elevation)
+	Définition : Altitude du site de lancement par rapport au niveau de la mer.
+	Unité : mètres (m)
+300
+
+Nom : Date et heure de lancement
+	Définition : Date et heure prévues pour le lancement, utilisées pour définir les conditions atmosphériques.
+	Unité : Tuple (année, mois, jour, heure), fuseau horaire (par exemple, "EST")
+18 août 2025 10h00 EST
+
+Nom : Profil de vent
+	Définition : Vitesse et direction du vent en fonction de l'altitude, définies comme des fonctions ou des données.
+	Unité : Vitesse (m/s), direction (°), altitude (m)
+Faire des recherches
+
+Nom : Longueur du rail de lancement (rail_length)
+	Définition : Longueur du rail de lancement, qui guide la fusée au décollage.
+	Unité : mètres (m)
+5.6388
